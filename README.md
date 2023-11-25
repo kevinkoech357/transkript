@@ -31,7 +31,7 @@ To use Transkript locally, follow these steps:
 
 ```bash
 # Clone the repository
-$ git clone https://github.com/your-username/transkript.git
+$ git clone https://github.com/kevinkoech357/transkript.git
 
 # Navigate to the project directory
 $ cd transkript
@@ -42,6 +42,7 @@ $ source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
 
 # Install dependencies
 $ pip install -r requirements.txt
+```
 
 ## Services
 
@@ -60,7 +61,7 @@ To transcribe your files, use the "Upload Audio/Video" section. Follow the promp
 Discover additional tools and resources:
 
 - **ScreenRekod:** Capture and record your screen.
-- **Source Code:** Access the source code of Transkript on [GitHub](#).
+- **Source Code:** Access the source code of Transkript on [GitHub](https://github.com/kevinkoech357/transkript.git).
 
 ## Contributing
 
