@@ -12,6 +12,26 @@ def allowed_file(filename):
 def index():
     return render_template('index.html')
 
-@user.route('/', methods=['POST'])
+@app.route('/upload', methods=['POST'])
 def upload_file():
-    pass
+    if 'file' not in request.files:
+        return redirect(request.url)
+
+    file = request.files['file']
+
+    if file.filename == '':
+        return redirect(request.url)
+
+    if file and allowed_file(file.filename):
+        # Use secure_filename to ensure a safe filename
+        filename = secure_filename(file.filename)
+
+        # Save the file to the upload folder
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(file_path)
+
+        # TO BE CONTINUED
+
+        return 'File uploaded successfully'
+
+    return 'Invalid file type'
