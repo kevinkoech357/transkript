@@ -1,4 +1,6 @@
 from flask import Blueprint, render_template, current_app
+from werkzeug.utils import secure_filename
+import os
 
 user = Blueprint('user', __name__)
 
