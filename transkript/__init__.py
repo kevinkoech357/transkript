@@ -6,6 +6,7 @@ from transkript.config import App_Config
 
 bootstrap = Bootstrap5()
 
+
 def create_app():
     app = Flask(__name__)
     bootstrap.init_app(app)
@@ -18,7 +19,7 @@ def create_app():
 
     # Initialize CORS
     CORS(app)
-    
+
     from transkript.views import user
 
     app.register_blueprint(user)
