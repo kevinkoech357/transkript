@@ -64,7 +64,7 @@
 
     <section class="content-section bg-primary text-white">
         <div class="container text-center">
-            <h2 class="mb-4">Before You Go....</h2><a class="btn btn-light btn-xl me-4" role="button" href="#">ScreenRekod</a><a class="btn btn-dark btn-xl me-4" role="button" href="#">Source Code</a>
+            <h2 class="mb-4">Before You Go....</h2><a class="btn btn-light btn-xl me-4" role="button" href="https://www.screenrekod.tech" target=_blank>ScreenRekod</a><a class="btn btn-dark btn-xl me-4" role="button" href="https://github.com/kevinkoech357/transkript" target=_blank>Source Code</a>
         </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -102,8 +102,14 @@
             this.on("success", function (file, response) {
                 console.log('Upload success:', response);
 
+                // Check the response from the server
+                if (response.success) {
                 // Display an alert for successful upload
                 alert('File has been uploaded successfully!');
+                } else {
+                // Display an alert for unsuccessful upload
+                alert('File upload failed. Please try again.');
+            }
             });
         }
     };
