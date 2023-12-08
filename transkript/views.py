@@ -1,8 +1,11 @@
-from flask import Blueprint, render_template, current_app, request, jsonify
+from flask import Blueprint, render_template, current_app, request, jsonify, flash
 from werkzeug.utils import secure_filename
+from transkript.tasks import transcribe_file
 import os
+import logging
 
 user = Blueprint("user", __name__)
+logger = logging.getLogger(__name__)
 
 ALLOWED_EXTENSIONS = {
     "mpeg",
@@ -23,6 +26,7 @@ def allowed_file(filename):
 
 @user.route("/", methods=["GET"])
 def index():
+    logger.info("Rendering index.html")
     return render_template("index.html")
 
 
@@ -30,13 +34,13 @@ def index():
 def upload():
     try:
         if "file" not in request.files:
-            print("No file part")
+            logger.error("No file part")
             return jsonify({"error": "No file part"})
 
         file = request.files["file"]
 
         if file.filename == "":
-            print("No selected file")
+            logger.error("No selected file")
             return jsonify({"error": "No selected file"})
 
         if file and allowed_file(file.filename):
@@ -45,15 +49,19 @@ def upload():
                 current_app.config["UPLOAD_FOLDER"], secure_filename(file.filename)
             )
             file.save(file_path)
+            logger.info("file saved, transcription starting")
 
             # Transcription
+            transcribe_file(file_path)
 
-            print("File uploaded successfully")
+            logger.info("Transcription in progress. It might take a while...")
+
+            logger.info("File uploaded successfully")
             return jsonify({"success": "File uploaded successfully"})
 
-        print("Invalid file type")
+        logger.error("Invalid file type")
         return jsonify({"error": "Invalid file type"})
 
     except Exception as e:
-        print(f"An error occurred: {str(e)}")
+        logger.exception(f"An error occurred: {str(e)}")
         return jsonify({"error": "An error occurred during file upload"})
