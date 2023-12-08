@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - Transkript</title>
+    <title>Transkript</title>
     <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css?h=fe14e883be3beb78fc8c8c8dfe8b0937">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic&amp;display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
@@ -17,7 +17,7 @@
     <header class="d-flex masthead" style="background-image:url('static/assets/img/bg-masthead.jpg?h=c6246dd736889aa3be373dc43f71e01e');">
         <div class="container my-auto text-center">
             <h1 class="mb-1">Transkript!</h1>
-            <h3 class="mb-5"><em><span style="font-weight: normal !important; font-style: normal !important; color: rgb(15, 15, 15);">Echoes of Conversations: Unraveling Stories Through Transcripts</span></em></h3><a class="btn btn-primary btn-xl js-scroll-trigger" role="button" href="#services">What we offer</a>
+            <h4 class="mb-5"><em><span style="font-weight: normal !important; font-style: normal !important; color: rgb(15, 15, 15);">Echoes of Conversations: Unraveling Stories Through <i>Transkripts!</i></span></em></h4><a class="btn btn-primary btn-xl js-scroll-trigger" role="button" href="#services">What we offer</a>
             <div class="overlay"></div>
         </div>
     </header>
@@ -77,28 +77,9 @@
         paramName: "file",
         maxFiles: 1,
         parallelUploads: 1,
-        autoQueue: false,
         maxFilesize: 20,
-        acceptedFiles: "audio/mpeg, audio/mp3, audio/mpeg3, audio/mpga, audio/mp4, audio/m4a, audio/wav, audio/webm, video/mp4",
+        acceptedFiles: "audio/*, video/*",
         init: function () {
-            var myDropzone = this; // Store the Dropzone instance
-
-            this.on("addedfile", function (file) {
-                console.log('Added file');
-
-                // Create a start button
-                var startButton = Dropzone.createElement('<button class="btn btn-primary start mt-2" type="button">Start Upload</button>');
-
-                // Append the start button to the file preview element
-                file.previewElement.appendChild(startButton);
-
-                // Hook up the start button
-                startButton.addEventListener("click", function () {
-                    console.log('Start button clicked');
-                    myDropzone.enqueueFile(file);
-                });
-            });
-
             this.on("success", function (file, response) {
                 console.log('Upload success:', response);
 
