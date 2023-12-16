@@ -4,8 +4,11 @@ from flask_bootstrap import Bootstrap5
 from transkript.config import App_Config
 import logging
 from logging.handlers import RotatingFileHandler
+from flask_celeryext import FlaskCeleryExt
+from transkript.celery_utils import make_celery
 
 bootstrap = Bootstrap5()
+ext_celery = FlaskCeleryExt(create_celery_app=make_celery)
 
 
 def create_app():
@@ -16,6 +19,7 @@ def create_app():
 
     # Set up extensions
     bootstrap.init_app(app)
+    ext_celery.init_app(app)
 
     # Allow URLs with or without trailing slashes
     app.url_map.strict_slashes = False
