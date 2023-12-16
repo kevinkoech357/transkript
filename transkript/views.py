@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, current_app, request, jsonify, flash
+from flask import Blueprint, render_template, current_app, request, jsonify
 from werkzeug.utils import secure_filename
 from transkript.tasks import transcribe_file
 import os
@@ -52,7 +52,7 @@ def upload():
             logger.info("file saved, transcription starting")
 
             # Transcription
-            transcribe_file(file_path)
+            transcribe_file.delay(file_path)
 
             logger.info("Transcription in progress. It might take a while...")
 

@@ -4,10 +4,13 @@ import whisper
 from whisper.utils import get_writer
 import logging
 import os
+from celery import shared_task
+
 
 logger = logging.getLogger(__name__)
 
 
+@shared_task
 def transcribe_file(file_path):
     try:
         # Ensure the upload folder exists
