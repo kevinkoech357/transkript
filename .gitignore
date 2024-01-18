@@ -1,3 +1,6 @@
+gunicorn_access.log
+gunicorn_error.log
+transkript.log
 __pycache__/
 env/
 .env
