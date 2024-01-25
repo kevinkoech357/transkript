@@ -1,72 +1,101 @@
 # Transkript
 
-## Description
-
-Transkript is a web application powered by Flask, designed to provide audio and video transcription services. It allows users to easily convert spoken words in audio and video files into written text. This project aims to streamline the transcription process, making it efficient and accessible.
+Transkript is a Flask-based web application designed to transcribe audio and video files, providing downloadable transcripts for users. It utilizes the Whisper Model from OPENAI for accurate transcriptions.
 
 ## Table of Contents
 
 - [Features](#features)
 - [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+  - [Configuration](#configuration)
+  - [Running the Application](#running-the-application)
   - [Usage](#usage)
-- [Services](#services)
-- [File Upload](#file-upload)
-- [Before You Go...](#before-you-go)
 - [Contributing](#contributing)
 - [License](#license)
+- [Acknowledgments](#acknowledgments)
 
 ## Features
 
-- **Audio Transcription:** Convert audio files into written transcripts.
-- **Video Transcription:** Transcribe spoken content from video files.
-- **Downloadable Transcripts:** Users can download transcriptions for future reference.
-- **User-Friendly Interface:** Simple navigation and easy-to-use design.
+- **Audio Transcription:** Transcribe audio files to text.
+- **Video Transcription:** Transcribe video files to text.
+- **Downloadable Transcripts:** Users can download the transcriptions as SRT files.
+- **User-Friendly Interface:** An intuitive and easy-to-use web interface for file upload.
 
 ## Getting Started
 
+Follow these instructions to set up and run Transkript on your local machine for development or testing purposes.
+
+### Prerequisites
+
+- [Python](https://www.python.org/) (version 3.8+)
+- [ffmpeg] ==> ```bash sudo apt update && sudo apt install ffmpeg -y```
+
 ### Installation
 
-To use Transkript locally, follow these steps:
+1. Clone the repository:
 
-```bash
-# Clone the repository
-$ git clone https://github.com/kevinkoech357/transkript.git
+    ```bash
+    git clone https://github.com/kevinkoech357/transkript.git
+    ```
 
-# Navigate to the project directory
-$ cd transkript
+2. Navigate to the project directory:
 
-# Create and activate a virtual environment
-$ python -m venv venv
-$ source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    ```bash
+    cd transkript
+    ```
 
-# Install dependencies
-$ pip install -r requirements.txt
-```
+3. Create a virtual environment:
 
-## Services
+    ```bash
+    python -m venv venv
+    ```
 
-Explore the different transcription services offered by Transkript:
+4. Activate the virtual environment:
 
-- **Audio Transcription:** Convert audio files into accurate written transcripts.
-- **Video Transcription:** Extract spoken content from video files for easy reference.
-- **Downloadable Transcripts:** Download transcripts for offline use.
+    - On Windows:
 
-## File Upload
+    ```bash
+    .\venv\Scripts\activate
+    ```
 
-To transcribe your files, use the "Upload Audio/Video" section. Follow the prompts to select and upload your audio or video files.
+    - On macOS and Linux:
 
-## Before You Go...
+    ```bash
+    source venv/bin/activate
+    ```
 
-Discover additional tools and resources:
+5. Install dependencies:
 
-- **ScreenRekod:** Capture and record your screen.
-- **Source Code:** Access the source code of Transkript on [GitHub](https://github.com/kevinkoech357/transkript.git).
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-## Contributing
+### Running the Application
 
-We welcome contributions! If you find a bug, have a feature request, or want to contribute code, please follow our [Contribution Guidelines](CONTRIBUTING.md).
+1. Run the Flask backend:
+
+    ```bash
+    python run.py 
+
+    or 
+
+    gunicorn -w 4 run:app
+    ```
+
+2. Visit [http://localhost:5000](http://localhost:5000) in your web browser.
+
+### Usage
+
+1. Upload your audio or video file using the provided form.
+2. Wait for the transcription process to complete.
+3. Once completed, you can download the transcription as an SRT file.
+
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE). For more details, please see the [LICENSE](LICENSE) file.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- OPENAI for providing the powerful Whisper model.
