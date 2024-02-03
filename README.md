@@ -2,6 +2,12 @@
 
 Transkript is a Flask-based web application designed to transcribe audio and video files, providing downloadable transcripts for users. It utilizes the Whisper Model from OPENAI for accurate transcriptions.
 
+
+
+https://github.com/kevinkoech357/transkript/assets/102515005/c756a12b-842c-47e3-90cd-7d95ff9ed3af
+
+
+
 ## Table of Contents
 
 - [Features](#features)
