@@ -1,5 +1,7 @@
-gunicorn_access.log
-gunicorn_error.log
+upload/
+gunicorn_config.py
+access.log
+error.log
 transkript.log
 __pycache__/
 env/
