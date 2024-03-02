@@ -1,12 +1,12 @@
 import os
 from dotenv import load_dotenv
 
-load_dotenv(".env")
+load_dotenv()
 
 
 class App_Config:
     # Secret key for signing cookies
-    SECRET_KEY = os.environ.get("SECRET_KEY", "hello_world!")
+    SECRET_KEY = os.environ.get("SECRET_KEY", "Transkript!")
     # Video uploads folder
-    UPLOAD_FOLDER = "/home/kevinkoech357/Personal/transkript/uploads"
+    UPLOAD_FOLDER = os.environ.get("UPLOAD_FOLDER", "uploads/")
     LOG_FILE_PATH = "transkript.log"

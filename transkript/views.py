@@ -7,7 +7,7 @@ import logging
 user = Blueprint("user", __name__)
 logger = logging.getLogger(__name__)
 
-ALLOWED_EXTENSIONS = {"mp3", "mp4"}
+ALLOWED_EXTENSIONS = {"mp3", "mp4", "mpeg", "mpga", "m4a", "wav", "webm"}
 
 
 def allowed_file(filename):
