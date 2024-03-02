@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_cors import CORS
 from flask_bootstrap import Bootstrap5
 from transkript.config import App_Config
@@ -21,7 +21,7 @@ def create_app():
     app.url_map.strict_slashes = False
 
     # Initialize CORS
-    CORS(app)
+    CORS(app, supports_credentials=True)
 
     # Set up logging
     configure_logging(app)
@@ -31,6 +31,28 @@ def create_app():
 
     # Register blueprint
     app.register_blueprint(user)
+
+    # Error handlers
+    @app.errorhandler(404)
+    def page_not_found(e):
+        """
+        Render 404.html incase of 404 status code.
+        """
+        return render_template("404.html")
+
+    @app.errorhandler(413)
+    def entity_too_larg(e):
+        """
+        Render 413.html incase of 413 status code.
+        """
+        return render_template("413.html")
+
+    @app.errorhandler(500)
+    def internal_server_error(e):
+        """
+        Render 500.html incase of 500 status code.
+        """
+        return render_template("500.html")
 
     return app
 
