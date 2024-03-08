@@ -1,4 +1,4 @@
-upload/
+uploads/
 gunicorn_config.py
 access.log
 error.log
