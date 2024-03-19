@@ -20,5 +20,5 @@ cd "$UPLOAD_FOLDER" || exit
 # Delete all files in the uploads directory
 find . -type f -delete
 
-# Optionally, you can add a log message to track when the script runs
+# Log message to track when the script runs
 echo "All files deleted from $UPLOAD_FOLDER at $(date)" >> /var/log/upload_cleanup.log
