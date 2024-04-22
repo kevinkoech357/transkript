@@ -16,7 +16,7 @@ Flask-CeleryExt==0.5.0
 Flask-Cors==4.0.0
 flower==2.0.1
 fsspec==2023.12.2
-gunicorn==21.2.0
+gunicorn==22.0.0
 humanize==4.9.0
 idna==3.6
 itsdangerous==2.1.2
