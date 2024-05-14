@@ -66,5 +66,5 @@ tzdata==2023.4
 urllib3==2.1.0
 vine==5.1.0
 wcwidth==0.2.13
-Werkzeug==3.0.1
+Werkzeug>=3.0.3
 WTForms==3.1.2
