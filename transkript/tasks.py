@@ -28,6 +28,7 @@ def transcribe_file(file_path):
 
             # Construct download link directly using the file name
             download_link = f"/download/{path.stem}.srt"
+
             return download_link
     except Exception as e:
         logger.exception(f"An error occurred: {str(e)}")

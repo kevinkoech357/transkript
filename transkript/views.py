@@ -23,33 +23,6 @@ def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-def save_file(file):
-    """
-    Save the file to the upload folder with a unique filename.
-
-    Parameters:
-        file (FileStorage): The file to be saved.
-
-    Returns:
-        str: The path to the saved file.
-    """
-    filename = secure_filename(file.filename)
-    base_path = current_app.config["UPLOAD_FOLDER"]
-
-    file_path = os.path.join(base_path, filename)
-    file_count = 1
-
-    while os.path.exists(file_path):
-        # If a file with the same name exists, append a number to the filename
-        filename, extension = os.path.splitext(filename)
-        filename = f"{filename}_{file_count}{extension}"
-        file_path = os.path.join(base_path, filename)
-        file_count += 1
-
-    file.save(file_path)
-    return file_path
-
-
 @user.route("/", methods=["GET"])
 def index():
     """
@@ -83,7 +56,20 @@ def upload():
 
         if file and allowed_file(file.filename):
             # Save the file to the upload folder
-            file_path = save_file(file)
+            filename = secure_filename(file.filename)
+            base_path = current_app.config["UPLOAD_FOLDER"]
+
+            file_path = os.path.join(base_path, filename)
+            file_count = 1
+
+            while os.path.exists(file_path):
+                # If a file with the same name exists, append a number to the filename
+                filename, extension = os.path.splitext(filename)
+                filename = f"{filename}_{file_count}{extension}"
+                file_path = os.path.join(base_path, filename)
+                file_count += 1
+
+            file.save(file_path)
 
             logger.info("Transcription in progress. It might take a while...")
 

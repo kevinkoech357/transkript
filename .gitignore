@@ -1,5 +1,4 @@
 uploads/
-gunicorn_config.py
 access.log
 error.log
 transkript.log

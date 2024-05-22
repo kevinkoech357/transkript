@@ -35,7 +35,7 @@ Follow these instructions to set up and run Transkript on your local machine for
 ### Prerequisites
 
 - [Python](https://www.python.org/) (version 3.8+)
-- [ffmpeg] ==> ```bash sudo apt update && sudo apt install ffmpeg -y```
+- ffmpeg ==> ```bash sudo apt update && sudo apt install ffmpeg -y```
 
 ### Installation
 
@@ -49,12 +49,16 @@ Follow these instructions to set up and run Transkript on your local machine for
 
     ```bash
     cd transkript
+    mkdir uploads
+
+    # Create .env file and add
+    UPLOAD_FOLDER='/path/to/upload/folder'
     ```
 
 3. Create a virtual environment:
 
     ```bash
-    python -m venv venv
+    python3 -m venv venv
     ```
 
 4. Activate the virtual environment:
@@ -82,7 +86,7 @@ Follow these instructions to set up and run Transkript on your local machine for
 1. Run the Flask backend:
 
     ```bash
-    python run.py 
+    python3 run.py
 
     or 
 
