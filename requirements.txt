@@ -50,7 +50,7 @@ python-dotenv==1.0.0
 pytz==2023.3.post1
 redis==5.0.2
 regex==2023.12.25
-requests==2.31.0
+requests==2.32.0
 ruff==0.1.14
 semantic-version==2.10.0
 setuptools-rust==1.8.1
