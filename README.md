@@ -86,7 +86,7 @@ Follow these instructions to set up and run Transkript on your local machine for
 1. Run the Flask backend:
 
     ```bash
-    python3 run.py
+    python run.py
 
     or 
 
