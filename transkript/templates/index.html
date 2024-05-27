@@ -170,35 +170,47 @@
     </section>
 
     <section class="content-section bg-primary text-white">
-        <div class="container text-center">
-            <h2 class="mb-4">Before You Go....</h2><a class="btn btn-light btn-xl me-4" role="button" href="https://screen-rekod-kevinkoech.koyeb.app/" target=_blank>ScreenRekod</a><a class="btn btn-dark btn-xl me-4" role="button" href="https://github.com/kevinkoech357/transkript" target=_blank>Source Code</a>
-        </div>
+      <div class="container text-center">
+        <h2 class="mb-4">Before You Go....</h2>
+        <a
+          class="btn btn-light btn-xl me-4"
+          role="button"
+          href="https://screen-rekod-kevinkoech.koyeb.app/"
+          target="_blank"
+          >ScreenRekod</a
+        ><a
+          class="btn btn-dark btn-xl me-4"
+          role="button"
+          href="https://github.com/kevinkoech357/transkript"
+          target="_blank"
+          >Source Code</a
+        >
+      </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="static/assets/js/stylish-portfolio.js?h=fd82ddc34ee78863a6928c678c293e4a"></script>
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-
     <script type="application/javascript">
       // Function to display the download link in the specified container
       function displayDownloadLinkFromResponse(response) {
         // Get the container by its ID
-        var downloadContainer = document.getElementById("download-container");
+        let downloadContainer = document.getElementById("download-container");
 
         // Check the response from the server
         if (response.success) {
           // Create a link element
-          var downloadButton = document.createElement("a");
+          let downloadButton = document.createElement("a");
           downloadButton.href = response.download_link;
           downloadButton.innerHTML = "Download Transkript!";
           downloadButton.classList.add("btn", "btn-primary", "mt-4", "btn-xl");
 
           // Add event listener to remove the download button when clicked
           downloadButton.addEventListener("click", function () {
-            // Delay the removal of the download button by 2 seconds (2000 milliseconds)
+            // Delay the removal of the download button by 3 seconds (2000 milliseconds)
             setTimeout(function () {
               downloadContainer.removeChild(downloadButton);
-            }, 2000); // 2 seconds delay
+            }, 3000); // 3 seconds delay
           });
 
           // Append the button to the container
@@ -215,10 +227,10 @@
         paramName: "file",
         maxFiles: 1,
         parallelUploads: 1,
-        maxFilesize: 15,
+        maxFilesize: 5,
         acceptedFiles: "audio/*, video/*",
         init: function () {
-          var dropzoneInstance = this;
+          let dropzoneInstance = this;
 
           this.on("processing", function (file) {
             // Display an alert when the file starts uploading
@@ -239,6 +251,7 @@
             dropzoneInstance.removeAllFiles();
           });
 
+          let downloadContainer = document.getElementById("download-container");
           downloadContainer.innerHTML = "";
         },
       };
