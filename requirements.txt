@@ -4,7 +4,7 @@ billiard==4.2.0
 blinker==1.7.0
 bootstrap-flask==2.3.3
 celery==5.3.6
-certifi==2023.11.17
+certifi==2024.7.4
 charset-normalizer==3.3.2
 click==8.1.7
 click-didyoumean==0.3.0
