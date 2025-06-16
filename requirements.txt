@@ -58,7 +58,7 @@ setuptools-rust==1.8.1
 six==1.16.0
 sympy==1.12
 tiktoken==0.5.2
-torch==2.6.0
+torch==2.7.1
 tornado==6.5.1
 tqdm==4.66.3
 triton==2.2.0
